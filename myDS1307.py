@@ -20,6 +20,18 @@ import time
 RTC_ADDR = 0x68  # default DS1307 address
 
 
+# Program Parameters
+
+day_names = ['Monday', 'Tuesday', 'Wednesday',
+             'Thrusday', 'Friday', 'Saturday', 'Sunday']
+day_names_abbr = ['Mon', 'Tu', 'Wed', 'Th', 'Fri', 'Sat', 'Sun']
+
+month_names = ['January', 'Febuary', 'March', 'April', 'May', 'June',
+               'July', 'August', 'September', 'October', 'November', 'December']
+month_names_abbr = [month[:3] if len(
+    month) > 4 else month for month in month_names]
+
+
 class RTC(DS1307):
     '''
     Class for the DS1307 RTC.
@@ -133,9 +145,45 @@ class RTC(DS1307):
         Returns: str
             YYYY/MM/DD
         '''
-        year, month, day = self._rtc.datetime[:3]
+        year, month, date = self._rtc.datetime[:3]
 
-        return '{:02d}/{:02d}/{:02d}'.format(year, month, day)
+        return '{:02d}/{:02d}/{:02d}'.format(year, month, date)
+
+    def name_weekday(self, full=True) -> str:
+        '''
+        Function to get the name of the current day as a string.
+
+        Parameters:
+            full: True - full name, False - abbr name (default True).
+
+        Returns: str
+            name of current week day.
+        '''
+
+        day = self._rtc.datetime[6]
+        if full:
+            return day_names[day]
+        else:
+            return day_names_abbr[day]
+        
+    def name_month(self, full=True) -> str:
+        '''
+        Function to get the name of the current month as a string.
+
+        Parameters:
+            full: True - full name, False - abbr name (default True).
+
+        Returns: str
+            name of current month.
+        '''
+
+        cur_month = self._rtc.datetime[1]
+
+        if full:
+            return month_names[cur_month-1]
+        else:
+            return month_names_abbr[cur_month-1]
+
 
 
 if __name__ == '__main__':
@@ -150,3 +198,8 @@ if __name__ == '__main__':
     # 12hr and showing am/pm
     print(rtc.current_time_str(format=12, meridiem=True))
     print(rtc.date_str())  # showing date
+    print(rtc.name_weekday())
+    print(rtc.name_weekday(False))
+    print(rtc.name_month())
+    print(rtc.name_month(False))
+
