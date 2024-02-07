@@ -82,3 +82,17 @@ rtc = RTC(id=1, SCL=19, SDA=18, freq=800_000, addr=0x68)
     print(rtc.name_month(), end=', ')
     print(rtc.name_month(False))
 ```
+
+prints the following
+
+
+```
+   Year     |    Month    |     Day     |    Hours    |   Minutes   |   Seconds   | Day of Week | Day of Year | 
+   2024     |      2      |      7      |     15      |     41      |     20      |      3      |     39      | 
+
+15:41:20
+03:41:20, 03:41:20 pm
+2024/02/07
+Thrusday, Th
+Febuary, Feb
+```
