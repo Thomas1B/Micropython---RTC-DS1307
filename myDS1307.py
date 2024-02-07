@@ -194,14 +194,14 @@ def example(rtc):
     # 12 hour Format
     print(rtc.current_time_str(format=12), end=', ')
     # 12hr and showing am/pm
-    print(rtc.current_time_str(format=12, meridiem=True))
+    print(rtc.current_time_str(format=12, meridiem=True), '\n')
 
     # showing date
-    print(rtc.date_str())
+    print(rtc.date_str(), '\n')
 
     # showing weekday name
     print(rtc.name_weekday(), end=', ')
-    print(rtc.name_weekday(False))
+    print(rtc.name_weekday(False), '\n')
 
     # showing month name
     print(rtc.name_month(), end=', ')

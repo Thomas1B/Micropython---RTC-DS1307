@@ -88,11 +88,14 @@ prints the following
 
 ```
    Year     |    Month    |     Day     |    Hours    |   Minutes   |   Seconds   | Day of Week | Day of Year | 
-   2024     |      2      |      7      |     15      |     41      |     20      |      3      |     39      | 
+   2024     |      2      |      7      |     15      |     43      |      2      |      3      |     39      | 
 
-15:41:20
-03:41:20, 03:41:20 pm
-2024/02/07
-Thrusday, Th
+15:43:02
+03:43:02, 03:43:02 pm 
+
+2024/02/07 
+
+Thrusday, Th 
+
 Febuary, Feb
 ```
