@@ -165,7 +165,7 @@ class RTC(DS1307):
             return day_names[day]
         else:
             return day_names_abbr[day]
-        
+
     def name_month(self, full=True) -> str:
         '''
         Function to get the name of the current month as a string.
@@ -185,21 +185,32 @@ class RTC(DS1307):
             return month_names_abbr[cur_month-1]
 
 
+def example(rtc):
+    rtc.breakdown()
+    print()
+
+    print(rtc.current_time_str())  # calling in default mode, 24hrs format
+
+    # 12 hour Format
+    print(rtc.current_time_str(format=12), end=', ')
+    # 12hr and showing am/pm
+    print(rtc.current_time_str(format=12, meridiem=True))
+
+    # showing date
+    print(rtc.date_str())
+
+    # showing weekday name
+    print(rtc.name_weekday(), end=', ')
+    print(rtc.name_weekday(False))
+
+    # showing month name
+    print(rtc.name_month(), end=', ')
+    print(rtc.name_month(False))
+
 
 if __name__ == '__main__':
 
     # # creating rtc object
     rtc = RTC(1, 19, 18)
 
-    rtc.breakdown()
-    print()
-    print(rtc.current_time_str())  # calling in default mode, 24hrs format
-    print(rtc.current_time_str(format=12))  # time in 12hr
-    # 12hr and showing am/pm
-    print(rtc.current_time_str(format=12, meridiem=True))
-    print(rtc.date_str())  # showing date
-    print(rtc.name_weekday())
-    print(rtc.name_weekday(False))
-    print(rtc.name_month())
-    print(rtc.name_month(False))
-
+    example(rtc)
