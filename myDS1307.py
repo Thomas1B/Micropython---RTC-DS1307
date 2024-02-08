@@ -127,7 +127,7 @@ class RTC(DS1307):
             return "{:02d}:{:02d}:{:02d}".format(hrs, mins, secs)
         elif format == 12:  # 12 hour format
             if meridiem:
-                meridiem = 'pm' if hrs > 12 else 'am'
+                meridiem = 'PM' if hrs > 12 else 'AM'
             hrs %= 12
             hrs = 12 if hrs == 0 else hrs
             if meridiem:
