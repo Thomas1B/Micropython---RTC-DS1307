@@ -127,7 +127,7 @@ class RTC(DS1307):
             return "{:02d}:{:02d}:{:02d}".format(hrs, mins, secs)
         elif format == 12:  # 12 hour format
             if meridiem:
-                meridiem = 'PM' if hrs > 12 else 'AM'
+                meridiem = 'PM' if hrs >= 12 else 'AM'
             hrs %= 12
             hrs = 12 if hrs == 0 else hrs
             if meridiem:
@@ -214,7 +214,7 @@ if __name__ == '__main__':
     rtc = RTC(1, 19, 18)
 
     # Setting time
-    # rtc.set_time(2024, 2, 13, 13, 52, 0, 2, 44)
+    # rtc.set_time(2024, 2, 14, 12, 41, 20, 3, 45)
     
     example(rtc)
 
