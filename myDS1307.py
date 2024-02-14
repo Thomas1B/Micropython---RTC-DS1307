@@ -213,4 +213,9 @@ if __name__ == '__main__':
     # # creating rtc object
     rtc = RTC(1, 19, 18)
 
+    # Setting time
+    # rtc.set_time(2024, 2, 13, 13, 52, 0, 2, 44)
+    
     example(rtc)
+
+    
