@@ -160,7 +160,7 @@ class RTC(DS1307):
             name of current week day.
         '''
 
-        day = self._rtc.datetime[6]
+        day = self._rtc.datetime[6]-1
         if full:
             return day_names[day]
         else:
