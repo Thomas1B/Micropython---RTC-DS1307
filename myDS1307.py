@@ -211,7 +211,7 @@ def example(rtc):
 if __name__ == '__main__':
 
     # # creating rtc object
-    rtc = RTC(1, 19, 18)
+    rtc = RTC(1, SCL=19, SDA=18)
 
     # Setting time
     # rtc.set_time(2024, 2, 14, 12, 41, 20, 3, 45)
