@@ -80,11 +80,11 @@ class RTC(DS1307):
             day_of_year: day of the year, Jan 1st is day 1.
         '''
 
-        self._rtc.datetime = (year, month, day, hour, minutes,
+        self._rtc.datetime(year, month, day, hour, minutes,
                               seconds, day_of_week, day_of_year)
         print(f"New RTC time: {self._rtc.datetime}")
 
-    def breakdown(self) -> None:
+    def breakdown_print(self) -> None:
         '''
         Function to print a breakdown of datetime for easier viewing.
         '''
@@ -183,9 +183,12 @@ class RTC(DS1307):
         else:
             return month_names_abbr[cur_month-1]
 
+    def raw(self) -> tuple:
+        return self._rtc.datetime
+
 
 def example(rtc):
-    rtc.breakdown()
+    rtc.breakdown_print()
     print()
 
     print(rtc.current_time_str())  # calling in default mode, 24hrs format
@@ -213,8 +216,6 @@ if __name__ == '__main__':
     rtc = RTC(1, SCL=19, SDA=18)
 
     # Setting time
-    # rtc.set_time(2024, 2, 14, 12, 41, 20, 3, 45)
-    
-    example(rtc)
 
-    
+    # example(rtc)
+    # print(rtc._rtc.weekday_start)
