@@ -80,10 +80,9 @@ class RTC(DS1307):
             day_of_year: day of the year, Jan 1st is day 1.
         '''
 
-        print(f"Old RTC time: {super().datetime}")
         self._rtc.datetime = (year, month, day, hour, minutes,
                               seconds, day_of_week, day_of_year)
-        print(f"New RTC time: {rtc.datetime}")
+        print(f"New RTC time: {self._rtc.datetime}")
 
     def breakdown(self) -> None:
         '''
